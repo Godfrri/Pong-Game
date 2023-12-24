@@ -5,8 +5,19 @@
             pos: self.pos
             size: self.size
 
+<PongPaddle>
+    size: 25, 200
+    canvas:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+
 <PongGame>
     ball: pong_ball
+    player1: player_left
+    player2: player_right
+
     canvas:                             
         Rectangle:
             pos: self.center_x - 5, 0
@@ -27,3 +38,13 @@
     PongBall:
         id: pong_ball
         center: self.parent.center
+    
+    PongPaddle:
+        id: player_left
+        x: root.x
+        y: root.center_y
+    
+    PongPaddle:
+        id: player_right
+        x: root.width - self.width
+        y: root.center_y
